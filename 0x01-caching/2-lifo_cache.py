@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
-"""task2"""
+"""jjkkll"""
 from collections import OrderedDict
-BaseCaching = __import__('base_caching').BaseCaching
+
+from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """lifo cache"""
+    """llllllll"""
     def __init__(self):
-        """initialization"""
+        """Illlll"""
         super().__init__()
         self.cache_data = OrderedDict()
 
     def put(self, key, item):
-        """function put"""
+        """Ammmmm"""
         if key is None or item is None:
             return
         if key not in self.cache_data:
@@ -23,5 +24,5 @@ class LIFOCache(BaseCaching):
         self.cache_data.move_to_end(key, last=True)
 
     def get(self, key):
-        """function get"""
+        """Rllll"""
         return self.cache_data.get(key, None)
