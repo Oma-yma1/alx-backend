@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""task3
+"""task3 modul
 """
 from collections import OrderedDict
 
@@ -7,16 +7,16 @@ from base_caching import BaseCaching
 
 
 class LRUCache(BaseCaching):
-    """lrucache
+    """lrucache task3
     """
     def __init__(self):
-        """initialization
+        """initialization task3
         """
         super().__init__()
         self.cache_data = OrderedDict()
 
     def put(self, key, item):
-        """function put
+        """function put task3
         """
         if key is None or item is None:
             return
@@ -30,7 +30,7 @@ class LRUCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """function get
+        """function get task3
         """
         if key is not None and key in self.cache_data:
             self.cache_data.move_to_end(key, last=False)
