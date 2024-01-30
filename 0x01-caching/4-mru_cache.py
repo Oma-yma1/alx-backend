@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-"""task4"""
+"""task4 mruchache"""
 from collections import OrderedDict
 from base_caching import BaseCaching
 
 
 class MRUCache(BaseCaching):
-    """MRUcache """
+    """MRUcache task4 """
     def __init__(self):
-        """initialization"""
+        """initialization task4"""
         super().__init__()
         self.cache_data = OrderedDict()
 
