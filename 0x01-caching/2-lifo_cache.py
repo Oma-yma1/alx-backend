@@ -1,18 +1,23 @@
 #!/usr/bin/env python3
-"""task2"""
+"""Last-In First-Out modul
+"""
 from collections import OrderedDict
+
 from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """lifo cache"""
+    """LIFOCache that inherits from
+    """
     def __init__(self):
-        """initialization"""
+        """Initialize the cache
+        """
         super().__init__()
         self.cache_data = OrderedDict()
 
     def put(self, key, item):
-        """function put"""
+        """add item in the cache.
+        """
         if key is None or item is None:
             return
         if key not in self.cache_data:
@@ -21,7 +26,8 @@ class LIFOCache(BaseCaching):
                 print("DISCARD:", last_key)
         self.cache_data[key] = item
         self.cache_data.move_to_end(key, last=True)
-        
+
     def get(self, key):
-        """function get"""
+        """Retrieves an item key
+        """
         return self.cache_data.get(key, None)
