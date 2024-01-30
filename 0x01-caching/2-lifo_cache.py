@@ -21,3 +21,7 @@ class LIFOCache(BaseCaching):
                 print("DISCARD:", last_key)
         self.cache_data[key] = item
         self.cache_data.move_to_end(key, last=True)
+        
+    def get(self, key):
+        """function get"""
+        return self.cache_data.get(key, None)
