@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ fifo caching """
 from collections import OrderedDict
 from base_caching import BaseCaching

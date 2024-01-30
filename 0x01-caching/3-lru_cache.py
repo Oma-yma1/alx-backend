@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """task3 modul
 """
 from collections import OrderedDict
