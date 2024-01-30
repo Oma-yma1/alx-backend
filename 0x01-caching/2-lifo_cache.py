@@ -1,28 +1,34 @@
 #!/usr/bin/env python3
-"""jjkkll"""
+"""Last-In First-Out caching module.
+"""
+from collections import OrderedDict
+
 from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """llllll"""
-
-    def __init__(self) -> None:
-        """ooooo"""
+    """LIFOCache that inherits from
+       BaseCaching and is a caching system:
+    """
+    def __init__(self):
+        """Initializes the cache.
+        """
         super().__init__()
+        self.cache_data = OrderedDict()
 
     def put(self, key, item):
-        """kkkkk"""
+        """Adds an item in the cache.
+        """
         if key is None or item is None:
             return
-        if key in self.cache_data.keys():
-            del self.cache_data[key]
+        if key not in self.cache_data:
+            if len(self.cache_data) + 1 > BaseCaching.MAX_ITEMS:
+                last_key, _ = self.cache_data.popitem(True)
+                print("DISCARD:", last_key)
         self.cache_data[key] = item
-        if len(self.cache_data.keys()) > BaseCaching.MAX_ITEMS:
-            first_key = list(self.cache_data.keys())[-2]
-            print("DISCARD: {}".format(first_key))
-            del self.cache_data[first_key]
+        self.cache_data.move_to_end(key, last=True)
 
     def get(self, key):
-        """llll"""
-        if key is None or key not in self.cache_data.keys():
-            return None
+        """Retrieves an item by key.
+        """
+        return self.cache_data.get(key, None)
